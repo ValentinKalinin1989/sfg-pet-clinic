@@ -3,7 +3,7 @@ package guru.springframework.sfgpetclinic.bootstrap;
 import guru.springframework.sfgpetclinic.model.*;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialitesService;
+import guru.springframework.sfgpetclinic.services.SpecialtyService;
 import guru.springframework.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,13 +16,13 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialitesService specialitesService;
+    private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitesService specialitesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
-        this.specialitesService = specialitesService;
+        this.specialtyService = specialtyService;
     }
 
     @Override
@@ -46,15 +46,15 @@ public class DataLoader implements CommandLineRunner {
 
         Specialty radiology = new Specialty();
         radiology.setDescription("Radiology");
-        Specialty saveRadiology = specialitesService.save(radiology);
+        Specialty saveRadiology = specialtyService.save(radiology);
 
         Specialty surgery = new Specialty();
         surgery.setDescription("Surgery");
-        Specialty saveSurgery = specialitesService.save(surgery);
+        Specialty saveSurgery = specialtyService.save(surgery);
 
         Specialty dentistry = new Specialty();
         dentistry.setDescription("Dentistry");
-        Specialty saveDentistry = specialitesService.save(dentistry);
+        Specialty saveDentistry = specialtyService.save(dentistry);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
